@@ -165,7 +165,6 @@ git_sparse_clone master "https://github.com/immortalwrt/immortalwrt" "immortal" 
 #git_sparse_clone openwrt-22.03 "https://github.com/openwrt/luci" "opluci" applications/luci-app-watchcat \
 
 rm -rf natter && rm -rf upx
-rm -rf
 
 mv -n openwrt-passwall/* ./ ; rm -Rf openwrt-passwall
 mv -n openwrt-package/* ./ ; rm -Rf openwrt-package
