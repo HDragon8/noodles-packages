@@ -166,9 +166,10 @@ git_sparse_clone master "https://github.com/immortalwrt/immortalwrt" "immortal" 
 #git_sparse_clone openwrt-22.03 "https://github.com/openwrt/luci" "opluci" applications/luci-app-watchcat \
 
 #rm -rf natter &&
-rm -rf upx
+#rm -rf upx
 git_sparse_clone master "https://github.com/coolsnowwolf/lede" "lean" package/lean/autocore package/lean/automount package/lean/vsftpd-alt \
-package/lean/upx package/lean/ipv6-helper package/lean/adbyby
+package/lean/ipv6-helper package/lean/adbyby
+#package/lean/upx
 git_sparse_clone master "https://github.com/coolsnowwolf/luci" "leanluci" applications/luci-app-adbyby-plus applications/luci-app-phtunnel applications/luci-app-unblockmusic \
 applications/luci-app-arpbind applications/luci-app-diskman applications/luci-app-usb-printer applications/luci-app-zerotier
 
