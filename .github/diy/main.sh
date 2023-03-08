@@ -143,7 +143,7 @@ git_sparse_clone master "https://github.com/coolsnowwolf/packages" "leanpack" ne
 net/baidupcs-web multimedia/gmediarender net/go-aliyundrive-webdav \
 net/qBittorrent-static net/qBittorrent libs/qtbase libs/qttools libs/rblibtorrent \
 net/uugamebooster net/verysync net/dnsforwarder net/nps net/tcpping \
-net/phtunnel multimedia/UnblockNeteaseMusic
+net/phtunnel multimedia/UnblockNeteaseMusic net/zerotier
 
 git_sparse_clone master "https://github.com/immortalwrt/packages" "immpack" net/sub-web net/dnsproxy net/haproxy net/cdnspeedtest \
 net/subconverter net/ngrokc net/oscam net/njitclient net/scutclient net/gowebdav \
