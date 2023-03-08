@@ -36,15 +36,17 @@ jobs:
 
     - name: Initialization environment
       run : |
-        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git config --global user.name "github-actions[bot]"
+#        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+#        git config --global user.name "github-actions[bot]"
+        git config --global user.email "houyonghua2015@gmail.com"
+        git config --global user.name "HDragon8"
         sudo timedatectl set-timezone "Asia/Shanghai"
         
     - name: Clone packages
       run: |
         cd $GITHUB_WORKSPACE
         chmod +x .github/diy/${{matrix.target}}.sh
-        git clone -b ${{matrix.target}} https://github.com/HDragon8/packages.git ${{matrix.target}}
+        git clone -b ${{matrix.target}} https://github.com/HDragon8/noodles-packages.git ${{matrix.target}}
         cd ${{matrix.target}}
         git rm -r --cache * >/dev/null 2>&1 &
         rm -rf `find ./* -maxdepth 0 -type d ! -name "diy"` >/dev/null 2>&1
@@ -67,7 +69,7 @@ jobs:
         if git status --porcelain | grep .; then
           git add .
           git commit -am "update $(date '+%Y-%m-%d %H:%M:%S')"
-          git push --quiet "https://${{ secrets.noodles_TOKEN }}@github.com/HDragon8/packages.git" HEAD:${{matrix.target}}
+          git push --quiet "https://${{ secrets.noodles_TOKEN }}@github.com/HDragon8/noodles-packages.git" HEAD:${{matrix.target}}
         else
           echo "nothing to commit"
           exit 0
