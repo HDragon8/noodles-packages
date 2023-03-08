@@ -85,7 +85,7 @@ git clone --depth 1 https://github.com/Hyy2001X/AutoBuild-Packages && rm -rf Aut
 git clone --depth 1 https://github.com/sirpdboy/sirpdboy-package && mv -n sirpdboy-package/{luci-app-adguardhome,luci-app-dockerman} ./ ; rm -rf sirpdboy-package 
 git clone --depth 1 https://github.com/gdck/luci-app-cupsd cupsd1 && mv -n cupsd1/luci-app-cupsd cupsd1/cups/cups ./ ; rm -rf cupsd1
 git clone --depth 1 https://github.com/kenzok8/wall && mv -n wall/* ./ ; rm -rf alist && rm -rf wall
-git clone --depth 1 https://github.com/peter-tank/luci-app-fullconenat
+#git clone --depth 1 https://github.com/peter-tank/luci-app-fullconenat
 git clone --depth 1 https://github.com/sirpdboy/sirpdboy-package && mv -n sirpdboy-package/luci-app-dockerman ./ ; rm -rf sirpdboy-package
 git clone --depth 1 https://github.com/sundaqiang/openwrt-packages && mv -n openwrt-packages/luci-* ./; rm -rf openwrt-packages
 git clone --depth 1 https://github.com/zxlhhyccc/luci-app-v2raya
@@ -119,7 +119,7 @@ git clone --depth 1 https://github.com/QiuSimons/openwrt-mos && mv -n openwrt-mo
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall2 passwall2 && mv -n passwall2/luci-app-passwall2 ./;rm -rf passwall2
 git clone --depth 1 -b luci https://github.com/xiaorouji/openwrt-passwall passwall && mv -n passwall/luci-app-passwall ./;rm -rf passwall
 git clone --depth 1 https://github.com/SSSSSimon/tencentcloud-openwrt-plugin-ddns && mv -n tencentcloud-openwrt-plugin-ddns/tencentcloud_ddns ./luci-app-tencentddns; rm -rf tencentcloud-openwrt-plugin-ddns
-git clone --depth 1 https://github.com/Tencent-Cloud-Plugins/tencentcloud-openwrt-plugin-cos && mv -n tencentcloud-openwrt-plugin-cos/tencentcloud_cos ./luci-app-tencentcloud-cos; rm -rf tencentcloud-openwrt-plugin-cos
+#git clone --depth 1 https://github.com/Tencent-Cloud-Plugins/tencentcloud-openwrt-plugin-cos && mv -n tencentcloud-openwrt-plugin-cos/tencentcloud_cos ./luci-app-tencentcloud-cos; rm -rf tencentcloud-openwrt-plugin-cos
 git clone --depth 1 https://github.com/kiddin9/openwrt-packages && mv -n openwrt-packages/luci-app-bypass openwrt-packages/luci-app-fileassistant ./ ; rm -rf openwrt-packages
 git clone --depth 1 https://github.com/immortalwrt/packages && mv -n packages/net/cdnspeedtest ./ ; rm -rf packages
 git clone --depth 1 https://github.com/immortalwrt/luci && mv -n luci/applications/luci-app-gost luci/applications/luci-app-filebrowser ./ ; rm -rf luci
@@ -135,8 +135,12 @@ svn export https://github.com/Lienol/openwrt-package/branches/other/lean/luci-ap
 svn export https://github.com/Ysurac/openmptcprouter-feeds/trunk/luci-app-iperf
 svn export https://github.com/openwrt/packages/trunk/net/shadowsocks-libev
 
+#git_sparse_clone master "https://github.com/coolsnowwolf/packages" "leanpack" net/miniupnpd net/mwan3 \
+#net/amule net/baidupcs-web multimedia/gmediarender net/go-aliyundrive-webdav \
+#net/qBittorrent-static net/qBittorrent libs/qtbase libs/qttools libs/rblibtorrent \
+#net/uugamebooster net/verysync net/dnsforwarder net/nps net/tcpping
 git_sparse_clone master "https://github.com/coolsnowwolf/packages" "leanpack" net/miniupnpd net/mwan3 \
-net/amule net/baidupcs-web multimedia/gmediarender net/go-aliyundrive-webdav \
+net/baidupcs-web multimedia/gmediarender net/go-aliyundrive-webdav \
 net/qBittorrent-static net/qBittorrent libs/qtbase libs/qttools libs/rblibtorrent \
 net/uugamebooster net/verysync net/dnsforwarder net/nps net/tcpping
 
@@ -149,14 +153,19 @@ git_sparse_clone develop "https://github.com/Ysurac/openmptcprouter-feeds" "enmp
 luci-app-packet-capture luci-app-mail msmtp
 
 git_sparse_clone master "https://github.com/x-wrt/com.x-wrt" "x-wrt" natflow lua-ipops luci-app-macvlan
-git_sparse_clone master "https://github.com/immortalwrt/immortalwrt" "immortal" package/network/utils/nftables \
-package/utils/mhz package/libs/mbedtls package/libs/libnftnl
+#git_sparse_clone master "https://github.com/immortalwrt/immortalwrt" "immortal" package/network/utils/nftables \
+#package/utils/mhz package/libs/mbedtls package/libs/libnftnl
+
+git_sparse_clone master "https://github.com/immortalwrt/immortalwrt" "immortal" package/utils/mhz
 
 #git_sparse_clone openwrt-22.03 "https://github.com/openwrt/packages" "22packages" \
 #utils/cgroupfs-mount utils/coremark utils/watchcat utils/dockerd net/nginx net/uwsgi net/ddns-scripts \
 #net/ariang admin/netdata net/transmission-web-control net/rp-pppoe net/tailscale
 
 #git_sparse_clone openwrt-22.03 "https://github.com/openwrt/luci" "opluci" applications/luci-app-watchcat \
+
+rm -rf natter && rm -rf upx
+rm -rf
 
 mv -n openwrt-passwall/* ./ ; rm -Rf openwrt-passwall
 mv -n openwrt-package/* ./ ; rm -Rf openwrt-package
