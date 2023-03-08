@@ -147,7 +147,7 @@ net/uugamebooster net/verysync net/dnsforwarder net/nps net/tcpping
 git_sparse_clone master "https://github.com/immortalwrt/packages" "immpack" net/sub-web net/dnsproxy net/haproxy net/cdnspeedtest \
 net/subconverter net/ngrokc net/oscam net/njitclient net/scutclient net/gowebdav \
 libs/jpcre2 libs/wxbase libs/rapidjson libs/libcron libs/quickjspp libs/toml11 \
-utils/cpulimit
+utils/cpulimit net/phtunnel multimedia/UnblockNeteaseMusic
 
 git_sparse_clone develop "https://github.com/Ysurac/openmptcprouter-feeds" "enmptcp" luci-app-snmpd \
 luci-app-packet-capture luci-app-mail msmtp
@@ -167,7 +167,8 @@ git_sparse_clone master "https://github.com/immortalwrt/immortalwrt" "immortal" 
 #rm -rf natter &&
 rm -rf upx
 git_sparse_clone master "https://github.com/coolsnowwolf/lede" "lean" package/lean/autocore package/lean/automount package/lean/vsftpd-alt \
-package/lean/upx package/lean/ipv6-helper
+package/lean/upx package/lean/ipv6-helper package/lean/adbyby
+git_sparse_clone master "https://github.com/coolsnowwolf/luci" "leanluci" applications/luci-app-adbyby-plus applications/luci-app-phtunnel applications/luci-app-unblockmusic
 
 mv -n openwrt-passwall/* ./ ; rm -Rf openwrt-passwall
 mv -n openwrt-package/* ./ ; rm -Rf openwrt-package
