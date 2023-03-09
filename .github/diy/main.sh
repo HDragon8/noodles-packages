@@ -139,16 +139,22 @@ svn export https://github.com/openwrt/packages/trunk/net/shadowsocks-libev
 #net/amule net/baidupcs-web multimedia/gmediarender net/go-aliyundrive-webdav \
 #net/qBittorrent-static net/qBittorrent libs/qtbase libs/qttools libs/rblibtorrent \
 #net/uugamebooster net/verysync net/dnsforwarder net/nps net/tcpping
-git_sparse_clone master "https://github.com/coolsnowwolf/packages" "leanpack" net/miniupnpd net/mwan3 \
-net/baidupcs-web multimedia/gmediarender net/go-aliyundrive-webdav \
-net/qBittorrent-static net/qBittorrent libs/qtbase libs/qttools libs/rblibtorrent \
-net/uugamebooster net/verysync net/dnsforwarder net/nps net/tcpping \
-net/phtunnel multimedia/UnblockNeteaseMusic net/zerotier
+git_sparse_clone master "https://github.com/coolsnowwolf/packages" "leanpkg" net/miniupnpd net/mwan3 multimedia/UnblockNeteaseMusic-Go \
+multimedia/UnblockNeteaseMusic net/amule net/antileech net/baidupcs-web net/frp multimedia/gmediarender net/go-aliyundrive-webdav \
+net/qBittorrent-static net/qBittorrent net/transmission net/phtunnel libs/qtbase libs/qttools libs/rblibtorrent \
+net/uugamebooster net/verysync net/vlmcsd net/dnsforwarder net/nps net/tcpping net/netatalk net/pgyvpn
+mv -f miniupnpd miniupnpd-iptables
 
-git_sparse_clone master "https://github.com/immortalwrt/packages" "immpack" net/sub-web net/dnsproxy net/haproxy net/cdnspeedtest \
-net/subconverter net/ngrokc net/oscam net/njitclient net/scutclient net/gowebdav \
-libs/jpcre2 libs/wxbase libs/rapidjson libs/libcron libs/quickjspp libs/toml11 \
-utils/cpulimit
+#git_sparse_clone master "https://github.com/immortalwrt/packages" "immpack" net/sub-web net/dnsproxy net/haproxy net/cdnspeedtest \
+#net/subconverter net/ngrokc net/oscam net/njitclient net/scutclient net/gowebdav \
+#libs/jpcre2 libs/wxbase libs/rapidjson libs/libcron libs/quickjspp libs/toml11 \
+#utils/cpulimit
+git_sparse_clone master "https://github.com/immortalwrt/packages" "immpkgs" net/mwol \
+net/sub-web net/dnsproxy net/haproxy net/v2raya net/cdnspeedtest net/keepalived \
+net/subconverter net/ngrokc net/oscam net/njitclient net/scutclient net/gost net/gowebdav \
+admin/bpytop libs/jpcre2 libs/wxbase libs/rapidjson libs/libcron libs/quickjspp libs/toml11 \
+utils/cpulimit utils/filebrowser utils/cups net/udp2raw net/msd_lite net/xfrpc
+git_sparse_clone master "https://github.com/xiaoqingfengATGH/feeds-xiaoqingfeng" "xiaoqingfeng" homeredirect luci-app-homeredirect
 
 git_sparse_clone develop "https://github.com/Ysurac/openmptcprouter-feeds" "enmptcp" luci-app-snmpd \
 luci-app-packet-capture luci-app-mail msmtp
@@ -157,7 +163,10 @@ git_sparse_clone master "https://github.com/x-wrt/com.x-wrt" "x-wrt" natflow lua
 #git_sparse_clone master "https://github.com/immortalwrt/immortalwrt" "immortal" package/network/utils/nftables \
 #package/utils/mhz package/libs/mbedtls package/libs/libnftnl
 
-git_sparse_clone master "https://github.com/immortalwrt/immortalwrt" "immortal" package/utils/mhz
+#git_sparse_clone master "https://github.com/immortalwrt/immortalwrt" "immortal" package/utils/mhz
+git_sparse_clone master "https://github.com/immortalwrt/immortalwrt" "immortal" package/kernel/rtl88x2bu \
+package/kernel/r8168 package/kernel/rtl8821cu package/kernel/rtl8189es package/emortal/autocore  package/emortal/automount package/network/utils/fullconenat \
+package/utils/mhz
 
 #git_sparse_clone openwrt-22.03 "https://github.com/openwrt/packages" "22packages" \
 #utils/cgroupfs-mount utils/coremark utils/watchcat utils/dockerd net/nginx net/uwsgi net/ddns-scripts \
@@ -167,12 +176,22 @@ git_sparse_clone master "https://github.com/immortalwrt/immortalwrt" "immortal" 
 
 #rm -rf natter &&
 #rm -rf upx
-git_sparse_clone master "https://github.com/coolsnowwolf/lede" "lean" package/lean/autocore package/lean/automount package/lean/vsftpd-alt \
-package/lean/ipv6-helper package/lean/adbyby
+#git_sparse_clone master "https://github.com/coolsnowwolf/lede" "lean" package/lean/autocore package/lean/automount package/lean/vsftpd-alt \
+#package/lean/ipv6-helper package/lean/adbyby
 #package/lean/upx
-git_sparse_clone master "https://github.com/coolsnowwolf/luci" "leanluci" applications/luci-app-adbyby-plus applications/luci-app-phtunnel applications/luci-app-unblockmusic \
-applications/luci-app-arpbind applications/luci-app-diskman applications/luci-app-usb-printer applications/luci-app-zerotier
 
+git_sparse_clone master "https://github.com/coolsnowwolf/luci" "leluci" applications libs/luci-lib-fs
+mv -f applications luciapp
+rm -rf luciapp/{luci-app-qbittorrent,luci-app-cpufreq}
+git_sparse_clone master "https://github.com/immortalwrt/luci" "immluci" applications protocols/luci-proto-minieap
+mv -n applications/* luciapp/; rm -rf applications
+#git_sparse_clone master "https://github.com/coolsnowwolf/luci" "leanluci" applications/luci-app-adbyby-plus applications/luci-app-phtunnel applications/luci-app-unblockmusic \
+#applications/luci-app-arpbind applications/luci-app-diskman applications/luci-app-usb-printer applications/luci-app-zerotier
+git_sparse_clone master "https://github.com/coolsnowwolf/lede" "leanlede" package/lean package/network/services/shellsync
+mv -f lean luciapp
+rm -rf luciapp/default-settings
+
+mv -n luciapp/* ./ ; rm -Rf luciapp
 mv -n openwrt-passwall/* ./ ; rm -Rf openwrt-passwall
 mv -n openwrt-package/* ./ ; rm -Rf openwrt-package
 mv -n openwrt-app-actions/applications/* ./;rm -rf openwrt-app-actions
