@@ -203,6 +203,11 @@ sed -i \
 -e 's/ca-certificates/ca-bundle/' \
 */Makefile
 
+rm -rf luci-app-noddos & rm -rf default-settings
+rm -rf luci-app-cshark & rm -rf luci-app-dnscrypt-proxy & rm -rf luci-app-https-dns-proxy & rm -rf luci-app-ssr-mudb-server
+rm -rf luci-app-ledtrig-*
+rm -rf luci-app-samba
+
 sed -i 's/luci-lib-ipkg/luci-base/g' luci-app-store/Makefile
 sed -i "/minisign:minisign/d" luci-app-dnscrypt-proxy2/Makefile
 sed -i 's/+dockerd/+dockerd +cgroupfs-mount/' luci-app-docker*/Makefile
