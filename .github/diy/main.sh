@@ -70,7 +70,8 @@ git clone --depth 1 https://github.com/sirpdboy/luci-app-lucky lucik && mv -n lu
 git clone --depth 1 https://github.com/sirpdboy/luci-app-partexp
 git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go ddns-go && mvdir ddns-go
 git clone --depth 1 https://github.com/sirpdboy/netspeedtest speedtest && mv -f speedtest/*/ ./ && rm -rf speedtest
-git clone --depth 1 https://github.com/Jason6111/luci-app-netdata
+#git clone --depth 1 https://github.com/Jason6111/luci-app-netdata
+git clone --depth 1 https://github.com/HDragon8/luci-app-netdata
 git clone --depth 1 https://github.com/KFERMercer/luci-app-tcpdump
 git clone --depth 1 https://github.com/jefferymvp/luci-app-koolproxyR
 git clone --depth 1 https://github.com/wolandmaster/luci-app-rtorrent
