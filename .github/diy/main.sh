@@ -190,7 +190,7 @@ mv -n applications/* luciapp/; rm -rf applications
 #git_sparse_clone master "https://github.com/coolsnowwolf/luci" "leanluci" applications/luci-app-adbyby-plus applications/luci-app-phtunnel applications/luci-app-unblockmusic \
 #applications/luci-app-arpbind applications/luci-app-diskman applications/luci-app-usb-printer applications/luci-app-zerotier
 git_sparse_clone master "https://github.com/coolsnowwolf/lede" "leanlede" package/lean package/network/services/shellsync
-mv -f lean luciapp
+mv -n lean/* luciapp/; rm -rf lean
 rm -rf luciapp/default-settings
 
 mv -n luciapp/* ./ ; rm -Rf luciapp
